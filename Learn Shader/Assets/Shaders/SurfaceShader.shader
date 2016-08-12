@@ -1,23 +1,52 @@
-﻿Shader "Custom/SurfaceShader" {
+﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
+Shader "Custom/SurfaceShader" {
+
+	/*Properties{
+		_MainTex("Main Tex", Color) = (1, 1, 1, 1)
+	}*/
 
 	SubShader {
 		pass{
 			CGPROGRAM
 
-			#pragma vertex vert
-			#pragma fragment frag
+#pragma vertex vert
+#pragma fragment frag
 
-			void vert(in float2 objPos:POSITION, out float4 col : COLOR, out float4 pos : POSITION)
+				//#include "Custom/Custom.cginc"
+#include "UnityCG.cginc"
+
+
+			struct v2f{
+				float4 pos : POSITION;
+				fixed4 color : COLOR;
+			};
+
+			v2f vert(appdata_base v)
 			{
-				pos = float4(objPos, 0, 1);
+				v2f o;
+				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
 
-				col = pos;
+				float x = o.pos.x / o.pos.w;
+				if (x <= -1 || x >= 1)
+				{
+					o.color = fixed4(1, 0, 0, 1);
+				}
+				else
+				{
+					o.color = fixed4(x / 2 + 0.5, x / 2 + 0.5, x / 2 + 0.5, 1);
+				}
+
+								
+				return o;
 			}
 
-			void frag(inout float4 col:COLOR)
+			float4 frag(v2f IN):COLOR
 			{
-
+				return IN.color;
 			}
+
+
 
 			ENDCG
 		}
