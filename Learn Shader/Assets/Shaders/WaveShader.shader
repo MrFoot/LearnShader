@@ -1,4 +1,4 @@
-﻿Shader "Custom/SurfaceShader" {
+﻿Shader "Custom/WaveShader" {
 
 	//Properties{
 	//}
@@ -29,7 +29,7 @@
 				v2f o;
 				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
 
-				o.color = fixed4(v.vertex.y, v.vertex.y, v.vertex.y, 1);
+				//o.color = fixed4(v.vertex.y, v.vertex.y, v.vertex.y, 1);
 								
 				return o;
 			}

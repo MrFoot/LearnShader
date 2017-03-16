@@ -66,9 +66,21 @@
     <Compile Include="Assets\Script\MVPTransform.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Shaders\AlphaBlend.shader" />
+    <None Include="Assets\Shaders\AlphaTest.shader" />
+    <None Include="Assets\Shaders\Chapter6-HalfLambert.shader" />
     <None Include="Assets\Shaders\NewSurfaceShader.shader" />
+    <None Include="Assets\Shaders\NewUnlitShader.shader" />
     <None Include="Assets\Shaders\Night.shader" />
-    <None Include="Assets\Shaders\SurfaceShader.shader" />
+    <None Include="Assets\Shaders\NormalMapInTangentSpace.shader" />
+    <None Include="Assets\Shaders\NormalMapInWorldSpace.shader" />
+    <None Include="Assets\Shaders\PixelLevel.shader" />
+    <None Include="Assets\Shaders\PixelLevelBlinn-Phong.shader" />
+    <None Include="Assets\Shaders\RampShader.shader" />
+    <None Include="Assets\Shaders\SimpleShader.shader" />
+    <None Include="Assets\Shaders\SpecularMask.shader" />
+    <None Include="Assets\Shaders\VertexLevel.shader" />
+    <None Include="Assets\Shaders\WaveShader.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>
